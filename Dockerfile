@@ -14,7 +14,7 @@ FROM base AS deps
 COPY package.json pnpm-lock.yaml* ./
 RUN corepack enable pnpm
 # Ограничиваем количество параллельных процессов
-RUN --mount=type=cache,target=/root/.pnpm-store pnpm install --frozen-lockfile --network-timeout=300000
+RUN --mount=type=cache,target=/root/.pnpm-store pnpm install --frozen-lockfile --fetch-timeout=300000
 
 FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
