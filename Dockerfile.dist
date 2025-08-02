@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1
+
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+EXPOSE 3000
+
+ENV NODE_ENV=production
+ENV NITRO_HOST=0.0.0.0
+ENV NITRO_PORT=3000
+ENV NODE_OPTIONS="--max-old-space-size=256"
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nuxtjs
+
+# Копируем готовые файлы сборки
+COPY --chown=nuxtjs:nodejs .output ./.output
+COPY --chown=nuxtjs:nodejs package.json ./package.json
+
+USER nuxtjs
+
+CMD ["node", ".output/server/index.mjs"] 
