@@ -1,0 +1,24 @@
+{
+  "name": "nuxt-cockpit-blog",
+  "version": "1.0.0",
+  "description": "Статический блог на Nuxt.js с интеграцией Cockpit CMS",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^20.0.0",
+    "nuxt": "^4.0.1"
+  },
+  "dependencies": {
+    "@stagewise/toolbar": "^0.6.2",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^9.0.0",
+    "markdown-it-toc-done-right": "^4.2.0"
+  }
+}
